@@ -1,0 +1,101 @@
+body {
+    background-image: url(../img/background4.jpg);
+}
+.container { 
+    margin-top: 30px;
+    padding: 30px 50px 50px 50px;
+    width: 1000px;
+    background-color: rgba(0,0,0,0.6);
+    color: whitesmoke;
+}
+
+.title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+.buttons-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.light { 
+    font-weight: lighter;
+}
+
+.user-info {
+    margin-bottom: 40px;
+}
+
+.caption {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #dc3545;
+    margin-bottom: 0.05rem;
+}
+
+h4 {
+    margin-bottom: 0.05rem;
+}
+
+p {
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+
+.descr {
+    margin-left: -20px;
+
+}
+
+.card-title {
+    color: black;
+}
+
+.card-col {
+    width: 60%;
+    margin-bottom: 30px;
+}
+
+.cropped {
+    width: 350px; /* width of container */
+    height: 350px; /* height of container */
+    object-fit: cover;
+}
+
+a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.other-players {
+    margin-top: 20px;
+}
+
+#plus {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: whitesmoke;
+    height: 20px;
+    width: 20px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+}
+
+.btn-fav {
+    margin-top: 20px;
+}

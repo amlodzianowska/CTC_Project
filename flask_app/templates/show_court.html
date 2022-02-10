@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎾 Court Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/style_court_card.css') }}">
+</head>
+
+<style>
+    #map {
+        height: 100%;
+    }
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAW3Rb7cs8vOV5VVP2K4VIVGBaCgUu32Vk&callback=initMap">
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col title">
+                {% if "user_id" not in session %}
+                <div class="col">
+                    <h2>{{one_court.title}}</h2>
+                    <h4>{{one_court.address1}}</h4>
+                    <h4>{{one_court.address2}}</h4>
+                </div>
+                <div class="btn-group buttons-nav">
+                    <a href="/browse_courts" class="btn btn-danger float-end">See Courts</a>
+                    <a href="/registration" class="btn btn-danger float-end">Register/Login</a>
+                </div>
+                {% endif %}
+                {% if "user_id" in session %}
+                <div class="col">
+                    <h2>{{one_court.title}}</h2>
+                    <h4>{{one_court.address1}}</h4>
+                    <h4>{{one_court.address2}}</h4>
+                </div>
+                
+                <div class="btn-group buttons-nav">
+                    <a href="/browse_courts" class="btn btn-danger float-end">See Courts</a>
+                    <a href="/user_dashboard" class="btn btn-danger float-end">Your Profile</a>
+                    <a href="/logout" class="btn btn-danger float-end">Logout</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <img class="cropped" src="../static/img/{{one_court.id}}.png" alt="...">
+                </div>
+                <div class="col descr">
+                    <p>{{one_court.descript}}, Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolorum minima incidunt id nam, laboriosam facere exercitationem nihil maxime vel ad architecto quas suscipit cupiditate ea dolore doloribus repellat nobis!</p>
+                    <a href="#">See This Month's Schedule...</a>
+                    {% if "user_id" in session %}
+                    <div class="col other-players">
+                        <h5>Who Else Plays Here?</h5>
+                        {% for user in one_court.users %}
+                        <div class="player">
+                            <p>{{user.first_name}} {{user.last_name}}, level: {{user.level}}</p>
+                            <button id="plus">+</button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a href="/favorite_court/{{one_court.id}}" class="btn btn-danger btn-fav">Add to Favorites</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

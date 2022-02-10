@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎾 User Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/style_user_card.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col title">
+                <h2>Hello {{one_user.first_name}}!</h2>
+                <div class="btn-group buttons-nav">
+                    <a href="/browse_courts" class="btn btn-danger float-end">See Courts</a>
+                    <a href="/logout" class="btn btn-danger float-end">Logout</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col user-info">
+                    <h4>{{one_user.first_name}} {{one_user.last_name}}</h4>
+                    <h4>Your current USTA level: <span class="light">{{one_user.level}}</span></h4>
+                </div>
+            </div>
+            {% if one_user.courts != "" %}
+                <div class="row card-row">
+                <h4 class="caption">Favorite Courts</h4>
+                {% for court in one_user.courts %}
+                    <div class="col card-col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="../static/img/{{court.id}}.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">{{court.title}}</h5>
+                            <p class="card-text">{{court.descript}}</p>
+                            <a href="/show_court/{{court.id}}" class="btn btn-danger">See more..</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

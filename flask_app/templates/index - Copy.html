@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>🎾 Chicago Tennis Community</title>
+</head>
+<body>
+    <div id="carousel-id" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../static/img/court_2.jpg" class="d-block w-100" alt="strawberries">
+            <div class="carousel-caption">
+                <h4>Welcome to Chicago Tennis Community</h4>
+                <p>Easiest way to connect with your local tennis community!</p>
+                <button type="button" class="btn btn-carousel btn-success"><a class="btn-success" href="/browse_courts">Continue as Guest</a></button>
+                <button type="button" class="btn btn-carousel btn-success"><a class="btn-success" href="/registration">Sign Up/Sign In</a></button>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

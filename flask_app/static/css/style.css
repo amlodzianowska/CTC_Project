@@ -1,0 +1,39 @@
+body {
+    background-image: url(../img/background3.jpg);
+}
+.middle-box {
+    position: relative;
+    top: 250px;
+    margin: 0 auto;
+    color: whitesmoke;
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+    max-width: 700px;
+}
+.carousel-caption > p {
+    padding: 10px 0px;
+}
+
+.buttons {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-carousel {
+    margin: 0 40px 0;
+    border: none;
+}
+
+.quantity {
+    width: 50px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+h4, p{
+    text-align: center;
+}

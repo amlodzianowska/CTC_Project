@@ -1,0 +1,52 @@
+body {
+    background-image: url(../img/background4.jpg);
+}
+.container { 
+    margin-top: 30px;
+    padding: 30px;
+    width: 1000px;
+    background-color: rgba(0,0,0,0.6);
+    color: whitesmoke;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+.buttons-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.light { 
+    font-weight: lighter;
+}
+
+.user-info {
+    margin-bottom: 40px;
+}
+
+.caption {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #dc3545;
+}
+
+p {
+    color: black;
+}
+
+.card-title {
+    color: black;
+}
+
+.card-col {
+    width: 60%;
+    margin-bottom: 30px;
+}

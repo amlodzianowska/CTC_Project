@@ -1,0 +1,41 @@
+body {
+    background-image: url(../img/background4.jpg);
+    color: whitesmoke
+}
+
+.container { 
+    margin-top: 30px;
+    padding: 30px;
+    width: 1000px;
+    background-color: rgba(0,0,0,0.6);
+    color: whitesmoke;
+}
+
+.quantity {
+    width: 50px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+.buttons-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+h1 {
+    color:#dc3545;
+}
+h3 {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,54 @@
+INSERT INTO courts (title, address1, address2, lat, lng, descript, created_at, updated_at) VALUES ("Waveland Park Tennis Courts", "3650 N Recreation Dr", "Chicago, IL 60613", "41.95027134749401", "-87.64275376441802", "Concrete tennis courts, 10 courts available", NOW(), NOW());
+
+INSERT INTO courts (title, address1, address2, lat, lng, ct_number, descript, created_at, updated_at) VALUES ("Waveland Park Tennis Courts North", "3920 N Recreation Dr", "Chicago, IL 60613", "41.95260487827705", "-87.64362572209015", "10", "Concrete tennis courts", NOW(), NOW());
+
+INSERT INTO courts (title, address1, address2, lat, lng, ct_number, descript, created_at, updated_at) VALUES ("Hamlin Tennis Court East", "3035 N Hoyne Ave", "Chicago, IL 60618", "41.9362663812319", "-87.68032096441803", "2", "Concrete tennis courts", NOW(), NOW());
+
+INSERT INTO courts (title, address1, address2, lat, lng, ct_number, descript, created_at, updated_at) VALUES ("Oz Park Tennis Courts", "613-601 W Dickens Ave", "Chicago, IL 60614", "41.9204492007282", "-87.6444970969589", "4", "Concrete tennis courts", NOW(), NOW());
+
+INSERT INTO courts (title, address1, address2, lat, lng, ct_number, descript, created_at, updated_at) VALUES ("Maggie Daley Park", "337 E Randolph St", "Chicago, IL 60601", "41.8839860304817", "-87.61595683013304", "6", "Concrete tennis courts", NOW(), NOW());
+
+INSERT INTO courts (title, address1, address2, lat, lng, ct_number, descript, created_at, updated_at) VALUES ("Roosevelt Park", "62 W Roosevelt Rd", "Chicago, IL 60605", "41.86777447445718", "-87.62994759510651", "3", "Concrete tennis courts", NOW(), NOW());
+
+INSERT INTO courts (title, address1, address2, lat, lng, ct_number, descript, created_at, updated_at) VALUES ("Chase Park Tennis Courts", "4701 N Ashland Ave", "Chicago, IL 60640", "41.96820038047428", "-87.66837779325407", "4", "Concrete tennis courts", NOW(), NOW());
+
+INSERT INTO fav_courts (user_id, court_id) VALUES ("2", "3"), ("2", "4"), ("3", "3"), ("3", "1"), ("4", "2");
+
+3.Selecting users with their courts
+
+SELECT users.id, users.first_name, users.last_name, users.email, users.level, users.birthday, users.gender, courts.id AS court_id, courts.title AS court_name, courts.descript AS court_description
+FROM users 
+JOIN fav_courts on (users.id=fav_courts.user_id)
+JOIN courts on (courts.id=fav_courts.court_id);
+
+4. Selecting courts with their users
+
+SELECT courts.id, courts.title, courts.address1, courts.address2, courts.lat, courts.lng, courts.ct_number, courts.descript,
+users.id as users_id, users.first_name as users_first_name, users.last_name as users_last_name, users.email as users_email, users.level as users_level , users.birthday as users_birthday, users.gender as users_gender
+FROM courts 
+JOIN fav_courts on (courts.id=fav_courts.court_id)
+JOIN users on (users.id=fav_courts.user_id)
+WHERE courts.id = 3;
+
+5. User's Connections
+
+SELECT users.id as person_id, users.first_name as person_first_name, users.last_name as person_last_name, 
+usersf.id as friend_id, usersf.first_name as friend_first_name, usersf.last_name as friend_last_name 
+FROM users 
+JOIN connections 
+ON users.id=connections.user_id
+OR users.id = connections.connection_id
+JOIN users usersf
+ON (usersf.id = connections.id and usersf.id <> users.id)
+OR (usersf.id = connections.connection_id and usersf.id <> users.id);
+
+6. Favourite a court
+INSERT INTO fav_courts (user_id, court_id) VALUES ("8","2")
+
+
+# @classmethod
+    #     def get_court_with_users(cls, data):
+    #         query = "SELECT * FROM courts WHERE id=%(court_id)s;"
+    #         results = connectToMySQL("tennis_app").query_db(query,data)
+    #         one_court = cls( results[0] )
+    #         return one_court
