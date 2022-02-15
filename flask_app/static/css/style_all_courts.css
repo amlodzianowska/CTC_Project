@@ -6,7 +6,7 @@ body {
     padding: 30px;
     width: 900px;
     background-color: rgba(0,0,0,0.6);
-    color: whitesmoke;
+    /* color: whitesmoke; */
 }
 
 .title {
@@ -42,4 +42,29 @@ a {
     
     font-weight: bold;
     color: #dc3545;
+}
+
+#map {
+    height: 700px;
+    width: 100%;
+}
+
+.maps_window_p  {
+    color: black;
+}
+
+.maps_window_p2  {
+    color: black;
+    margin-top: -14px;
+}
+
+button {
+    background-color: #dc3545;
+    padding: 10px;
+    margin-top: 10px;
+    color: whitesmoke;
+    /* font-weight: bold; */
+    border: none;
+    border-radius: 5px;
+    font-size: larger;
 }
